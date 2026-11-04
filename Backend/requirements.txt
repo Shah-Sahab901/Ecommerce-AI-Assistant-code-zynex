@@ -1,0 +1,4 @@
+"fastapi>=0.141.1",
+"openai-agents>=0.22.0",
+"python-decouple>=3.8",
+"python-dotenv>=1.2.3",

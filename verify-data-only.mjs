@@ -1,0 +1,12 @@
+const headers = { "xi-api-key": process.env.ELEVENLABS_API_KEY };
+const v = await (await fetch(`https://api.elevenlabs.io/v1/convai/agents/agent_1701m28qgfvpf5g93snqmsk3cdp0`, { headers })).json();
+const t = (v.conversation_config.agent.prompt?.prompt || "");
+console.log("total len:", t.length);
+console.log("has store rules:", t.includes("STORE DATA RULES"));
+console.log("has NEVER-invent:", t.includes("NEVER invent, assume, or suggest"));
+console.log("has formal-bridal block:", t.includes("formal dress, bridal lehnga"));
+console.log("has clarifying option rule:", t.includes("only offer options the catalog actually supports"));
+console.log("has order rule:", t.includes("orders, delivery, payment"));
+console.log("lang rules intact:", t.includes("IMPORTANT LANGUAGE RULES"), "| never-sorry:", t.includes("NEVER say"));
+console.log("--- tail ---");
+console.log(t.slice(-700));
